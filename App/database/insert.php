@@ -15,8 +15,8 @@ class Insert extends dbSetup{
     /**
      * @return array
      */
-    public function getAllJobs(){
-        $stmt = $this->getDb()->prepare("");
+    public function getAllTasks(){
+        $stmt = $this->getDb()->prepare("SELECT * FROM status");
         $stmt->execute();
         $res = $stmt->get_result();
         $a  = array();
@@ -26,8 +26,12 @@ class Insert extends dbSetup{
         $stmt->close();
         return $a;
     }
-    public function getAllUnFinishedJobs(){
-        $stmt = $this->getDb()->prepare("");
+
+  /**
+   * @return array
+   */
+    public function getAllUnFinishedTasks(){
+        $stmt = $this->getDb()->prepare("SELECT * FROM status");
         $stmt->execute();
         $res = $stmt->get_result();
         $a  = array();
@@ -37,7 +41,7 @@ class Insert extends dbSetup{
         $stmt->close();
         return $a;
     }
-    public function getAllDoneJobs(){
+    public function getAllDoneTasks(){
         $stmt = $this->getDb()->prepare("");
         $stmt->execute();
         $res = $stmt->get_result();
