@@ -1,0 +1,10 @@
+RewriteEngine on
+
+
+RewriteRule ^404 index.php?page=404 [NC,L]
+RewriteRule ^dashboard index.php?page=dashboard [NC,L]
+
+RewriteRule ^image/([0-9a-zA-Z]+) index.php?view=image&id=$1 [NC,L]
+RewriteRule ^tag/([0-9a-zA-Z\-]+) index.php?view=tag&tag=$1 [NC,L]
+RewriteRule ^tag index.php?page=tagSelect [NC,L]
+
