@@ -7,7 +7,7 @@
  */
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
-define("ROOT", "/fikatime-php");
+define("ROOT", "/tasklist-php");
 session_start();
 
 //Define autoloader

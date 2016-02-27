@@ -16,7 +16,7 @@ class Select extends dbSetup
 * @return array
 */
   public function getAllTasks(){
-    $stmt = $this->getDb()->prepare("SELECT * FROM status");
+    $stmt = $this->getDb()->prepare("SELECT * FROM task");
     $stmt->execute();
     $res = $stmt->get_result();
     $a  = array();
@@ -43,6 +43,21 @@ class Select extends dbSetup
   }
   public function getAllDoneTasks(){
     $stmt = $this->getDb()->prepare("");
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $a  = array();
+    while($row = $res->fetch_object()){
+      array_push($a, $row);
+    }
+    $stmt->close();
+    return $a;
+  }
+
+  /**
+   * @return array
+   */
+  public function getAllTasksWithStatus(){
+    $stmt = $this->getDb()->prepare("SELECT * FROM task_with_status");
     $stmt->execute();
     $res = $stmt->get_result();
     $a  = array();

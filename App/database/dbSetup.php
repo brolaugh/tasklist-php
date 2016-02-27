@@ -22,7 +22,7 @@ class dbSetup
      * dbSetup constructor.
      */
     public function __construct(){
-        $this->db = new Mysqli($this->server, $this->username, $this->password, $this->database);
+        $this->db = new \Mysqli($this->server, $this->username, $this->password, $this->database);
         if(!$this->db->set_charset("utf8")) {
             printf("Error loading character set utf8: %s\n", $this->db->error);
             exit();
