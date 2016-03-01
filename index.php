@@ -22,7 +22,6 @@ include_once("Helper.php");
 
 <main class="container-fluid">
   <header>
-
     <div class="jumbotron"><h1 class="text-lg-center text-md-center">TaskList</h1></div>
   </header>
   <?php

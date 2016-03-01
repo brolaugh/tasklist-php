@@ -12,10 +12,10 @@ namespace App\database;
 class dbSetup
 {
     private $db;
-    private $server = "mysql443.loopia.se";
-    private $username = "brolaugh@b141659";
-    private $password = "kattfanMasterrace";
-    private $database = "brolaugh_se_db_3";
+    private $server = "rickardhforslund.se";
+    private $username = "brolaugh";
+    private $password = "hannes";
+    private $database = "brolaugh_tasklist";
 
 
     /**
