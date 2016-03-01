@@ -54,10 +54,21 @@ class Select extends dbSetup
   }
 
   /**
-   * @return array
+   * @return object array
    */
   public function getAllTasksWithStatus(){
     $stmt = $this->getDb()->prepare("SELECT * FROM task_with_status");
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $a  = array();
+    while($row = $res->fetch_object()){
+      array_push($a, $row);
+    }
+    $stmt->close();
+    return $a;
+  }
+  public function getAllStatusLevels(){
+    $stmt = $this->getDb()->prepare("SELECT * FROM status_level");
     $stmt->execute();
     $res = $stmt->get_result();
     $a  = array();
