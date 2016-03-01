@@ -66,112 +66,46 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <?php
-      $s = new \App\database\Select();
-      $t = $s->getAllTasksWithStatus();
-      $status_level = $s->getAllStatusLevels();
-      foreach($t as $task){
-        ?>
-        <div class="well well-xs">
-          <h3>
-            <span class="pull-left"><?php echo $task->title; ?></span>
-            <div class="btn-group pull-right">
-              <a href="javascript:void(0)" class="btn btn-<?php echo $task->style_class;?> btn-raised"><?php echo $task->level; ?></a>
-              <a href="bootstrap-elements.html" data-target="#" class="btn btn-<?php echo $task->style_class;?> btn-raised dropdown-toggle"
-                 data-toggle="dropdown"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-
-                <?php
-                  foreach($status_level as $tl){
-                    if($task->level != $tl->plain_text) {
+    $s = new \App\database\Select();
+    $t = $s->getAllTasksWithStatus();
+    $status_level = $s->getAllStatusLevels();
+    foreach ($t as $task) {
+      ?>
+      <div class="well well-xs">
+        <h3>
+          <span class="pull-left"><?php echo $task->title; ?></span>
+          <div class="btn-group">
+            <div class="btn-toolbar">
+              <div class="btn-group">
+                <a href="bootstrap-elements.html" data-target="#" class="btn btn-raised btn-<?php echo $task->style_class;?> dropdown-toggle"
+                   data-toggle="dropdown">
+                  <?php echo $task->level ;?>
+                  <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                  <?php
+                  foreach ($status_level as $tl) {
+                    if ($task->level != $tl->plain_text) {
                       ?>
-                      <li><a href="<?php echo ROOT."/App/formhandler/changestatus.php?task=". $task->id . "&status=".$tl->id; ?>"><span class="text-<?php echo $tl->style_class;?>"><?php echo $tl->plain_text;?></span></a></li>
+                      <li><a
+                          href="<?php echo ROOT . "/App/formhandler/changestatus.php?task=" . $task->id . "&status=" . $tl->id; ?>"><span
+                            class="text-<?php echo $tl->style_class; ?>"><?php echo $tl->plain_text; ?></span></a></li>
                       <?php
                     }
                   }
 
-                ?>
-              </ul>
+                  ?>
+                </ul>
+              </div>
             </div>
-          </h3>
-          <p class="text-primary">
+          </div>
+        </h3>
+        <p class="text-primary">
             <?php echo $task->description; ?>
-          </p>
-        </div>
+        </p>
+      </div>
       <?php
-      }
-
+    }
     ?>
-
-    <div class="well well-xs">
-      <h3>Titel på jobbet
-        <div class="btn-group">
-          <a href="javascript:void(0)" class="btn btn-success btn-raised">Klar</a>
-          <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle"
-             data-toggle="dropdown"><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)"><span class="text-danger">PRIO #1</span></a></li>
-            <li><a href="javascript:void(0)"><span class="text-success">Klar</span></a></li>
-            <li><a href="javascript:void(0)"><span class="text-info">Under konstruktion</span></a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">Separated link</a></li>
-          </ul>
-        </div>
-      </h3>
-      <p class="text-primary">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      </p>
-    </div>
-    <div class="well well-xs">
-      <h3>Titel på jobbet
-        <div class="btn-group">
-          <a href="javascript:void(0)" class="btn btn-success btn-raised">Klar</a>
-          <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle"
-             data-toggle="dropdown"><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)"><span class="text-danger">PRIO #1</span></a></li>
-            <li><a href="javascript:void(0)"><span class="text-success">Klar</span></a></li>
-            <li><a href="javascript:void(0)"><span class="text-info">Under konstruktion</span></a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">Separated link</a></li>
-          </ul>
-        </div>
-      </h3>
-      <p class="text-primary">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      </p>
-    </div>
-    <div class="well well-xs">
-      <h3>Titel på jobbet
-        <div class="btn-group">
-          <a href="javascript:void(0)" class="btn btn-success btn-raised">Klar</a>
-          <a href="bootstrap-elements.html" data-target="#" class="btn btn-default btn-raised dropdown-toggle"
-             data-toggle="dropdown"><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="javascript:void(0)"><span class="text-danger">PRIO #1</span></a></li>
-            <li><a href="javascript:void(0)"><span class="text-success">Klar</span></a></li>
-            <li><a href="javascript:void(0)"><span class="text-info">Under konstruktion</span></a></li>
-            <li class="divider"></li>
-            <li><a href="javascript:void(0)">Separated link</a></li>
-          </ul>
-        </div>
-      </h3>
-      <p class="text-primary">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-        laborum.
-      </p>
-    </div>
-
-
   </div>
 </div>
