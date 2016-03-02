@@ -89,7 +89,7 @@ class Select extends dbSetup
   /**
    * @param int array $taskID
    */
-  public function getStatusesWithFollowingID($taskID=array(1))
+  public function getTasksWithFollowingStatus($taskID=array(1))
   {
     $query = "SELECT task_with_status.id as id, title, description, user, level, stamp, task_with_status.style_class as style_class, status_level.id as level_id FROM `task_with_status` LEFT JOIN status_level ON task_with_status.level=status_level.plain_text";
     $param = "";
