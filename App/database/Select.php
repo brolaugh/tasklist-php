@@ -89,29 +89,31 @@ class Select extends dbSetup
   /**
    * @param int array $taskID
    */
-  public function getStatusesWithFollowingID($taskID)
+  public function getStatusesWithFollowingID($taskID=array(1))
   {
     $query = "SELECT task_with_status.id as id, title, description, user, level, stamp, task_with_status.style_class as style_class, status_level.id as level_id FROM `task_with_status` LEFT JOIN status_level ON task_with_status.level=status_level.plain_text";
     $param = "";
     $secondParam = &$taskID;
     if (count($taskID) > 0) {
-      $query += " WHERE level_id IN(";
+      $query .= " WHERE status_level.id IN(";
       for ($i = 0; $i < count($taskID); $i++) {
-        if ($i != count($taskID))
-          $query += "?,";
+        if ($i != count($taskID) - 1)
+          $query .= "?,";
         else
-          $query += "?";
-        $param += "i";
+          $query .= "?";
+        $param .= "i";
       }
 
-      $query += ")";
+      $query .= ")";
     }
 
-
+    array_push($secondParam, $param);
+    $secondParam = array_reverse($secondParam);
     var_dump($query);
     var_dump($param);
     var_dump($secondParam);
     $stmt = $this->getDb()->prepare($query);
-    $stmt->bind_param($param, $secondParam);
+    call_user_func_array(array($stmt, "bind_param"), $secondParam);
+    var_dump($stmt->execute());
   }
 }
