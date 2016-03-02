@@ -106,14 +106,17 @@ class Select extends dbSetup
 
       $query .= ")";
     }
-
     array_push($secondParam, $param);
     $secondParam = array_reverse($secondParam);
-    var_dump($query);
-    var_dump($param);
-    var_dump($secondParam);
     $stmt = $this->getDb()->prepare($query);
     call_user_func_array(array($stmt, "bind_param"), $secondParam);
-    var_dump($stmt->execute());
+    $stmt->execute();
+    $res = $stmt->get_result();
+
+    $a = array();
+    while($row = $res->fetch_object()){
+      $a[] = $row;
+    }
+    return $a;
   }
 }
