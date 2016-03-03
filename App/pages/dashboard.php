@@ -10,12 +10,12 @@
   <div class="col-md-3">
     <div class="well">
       <h3>Alternativ</h3>
-      <form class="form-horizontal" action="index.html" method="post">
+      <form class="form-horizontal" action="javascript:getFeedArguments()" method="post">
         <div class="form-group">
           <div class="togglebutton">
             <label>
               Visa färdiga uppgifter
-              <input type="checkbox"><span class="toggle"></span>
+              <input type="checkbox" name="done" id="done"><span class="toggle"></span>
             </label>
           </div>
 
@@ -24,10 +24,31 @@
           <div class="togglebutton">
             <label>
               Visa ofärdiga uppgifter
-              <input checked="" type="checkbox"><span class="toggle"></span>
+              <input checked="" type="checkbox" name="undone" id="undone" ><span class="toggle"></span>
             </label>
           </div>
 
+        </div>
+        <div class="form-group">
+          <div class="togglebutton">
+            <label>
+              Visa indev uppgifter
+              <input checked="" type="checkbox" name="indev" id="indev" ><span class="toggle"></span>
+            </label>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <div class="togglebutton">
+            <label>
+              Visa PRIO 1 uppgifter
+              <input checked="" type="checkbox" name="prio1" id="prio1" ><span class="toggle"></span>
+            </label>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" name="button">updateFeed</button>
         </div>
       </form>
     </div>

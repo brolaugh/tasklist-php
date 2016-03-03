@@ -108,7 +108,6 @@ class Select extends dbSetup
     }
     array_unshift($secondParam, $param);
     $stmt = $this->getDb()->prepare($query);
-    var_dump($secondParam);
     call_user_func_array(array($stmt, "bind_param"), $this->makeValuesReferenced($secondParam));
     $stmt->execute();
     $res = $stmt->get_result();
