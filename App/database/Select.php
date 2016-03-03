@@ -93,7 +93,7 @@ class Select extends dbSetup
   {
     $query = "SELECT task_with_status.id as id, title, description, user, level, stamp, task_with_status.style_class as style_class, status_level.id as level_id FROM `task_with_status` LEFT JOIN status_level ON task_with_status.level=status_level.plain_text";
     $param = "";
-    $secondParam = &$taskID;
+    $secondParam = $taskID;
     if (count($taskID) > 0) {
       $query .= " WHERE status_level.id IN(";
       for ($i = 0; $i < count($taskID); $i++) {
@@ -106,13 +106,12 @@ class Select extends dbSetup
 
       $query .= ")";
     }
-    array_push($secondParam, $param);
-    $secondParam = array_reverse($secondParam);
+    array_unshift($secondParam, $param);
     $stmt = $this->getDb()->prepare($query);
-    call_user_func_array(array($stmt, "bind_param"), $secondParam);
+    var_dump($secondParam);
+    call_user_func_array(array($stmt, "bind_param"), $this->makeValuesReferenced($secondParam));
     $stmt->execute();
     $res = $stmt->get_result();
-
     $a = array();
     while($row = $res->fetch_object()){
       $a[] = $row;
