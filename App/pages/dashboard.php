@@ -10,7 +10,7 @@
   <div class="col-md-3">
     <div class="well">
       <h3>Alternativ</h3>
-      <form class="form-horizontal" action="javascript:getFeedArguments()" method="post">
+      <form class="form-horizontal" action="App/ajax/gettasks.php" method="post">
         <div class="form-group">
           <div class="togglebutton">
             <label>
@@ -85,7 +85,7 @@
   </div>
 </div>
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-3" id="feed">
     <?php
     $s = new \App\database\Select();
     $t = $s->getAllTasksWithStatus();
