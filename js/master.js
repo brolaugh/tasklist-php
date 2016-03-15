@@ -22,7 +22,7 @@ function changeStatus(){
     };
     xmlhttp.open("POST", "App/formhandlar/changestatus.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("task="+task+"&status="+status+"&user"=user);
+    xmlhttp.send("task="+task+"&status="+status+"&user"+user);
 }
 function updateFeed(a){
   var xmlhttp = new XMLHttpRequest();
@@ -37,7 +37,7 @@ function updateFeed(a){
   //console.debug(xmlhttp);
 }
 function getFeedArguments(){
-  var arguments = new Array();
+  var arguments = [];
   arguments.push(document.getElementById("done").checked);
   arguments.push(document.getElementById("undone").checked);
   arguments.push(document.getElementById("indev").checked);
