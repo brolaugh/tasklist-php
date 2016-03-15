@@ -17,7 +17,6 @@ include_once("Helper.php");
   <link rel="stylesheet" href="css/ripples.min.css" charset="utf-8">
   <meta charset="utf-8">
   <title>TaskList</title>
-  <script src="js/master.js" charset="utf-8"></script>
 </head>
 <body>
 
@@ -43,6 +42,7 @@ include_once("Helper.php");
   <script src="js/bootstrap.min.js" charset="utf-8"></script>
   <script src="js/material.min.js" charset="utf-8"></script>
   <script src="js/ripples.min.js" charset="utf-8"></script>
+  <script src="js/master.js" charset="utf-8"></script>
 </footer>
 </body>
 </html>

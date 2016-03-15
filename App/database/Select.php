@@ -91,17 +91,21 @@ class Select extends dbSetup
    */
   public function getTasksWithFollowingStatus($taskID=array(1))
   {
-    $query = "SELECT task_with_status.id as id, title, description, user, level, stamp, task_with_status.style_class as style_class, status_level.id as level_id FROM `task_with_status` LEFT JOIN status_level ON task_with_status.level=status_level.plain_text";
+    $query = "SELECT task_with_status.id as id, title, description, user, level, stamp, task_with_status.style_class as style_class, status_level.id as level_id FROM `task_with_status` LEFT JOIN status_level ON task_with_status.level=status_level.plain_text ORDER BY stamp DESC";
     $param = "";
     $secondParam = $taskID;
     if (count($taskID) > 0) {
       $query .= " WHERE status_level.id IN(";
       for ($i = 0; $i < count($taskID); $i++) {
-        if ($i != count($taskID) - 1)
+        if ($i != (count($taskID) - 1)){
           $query .= "?,";
-        else
+          $param .= "i";
+        }
+        else{
           $query .= "?";
-        $param .= "i";
+          $param .= "i";
+        }
+
       }
 
       $query .= ")";

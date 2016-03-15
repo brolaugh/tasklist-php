@@ -25,7 +25,11 @@ if(isset($_POST['prio1']) && $_POST['prio1'] == true){
   $a[] = 4;
 }
 $s = new \App\database\Select();
-$tasks = $s->getTasksWithFollowingStatus($a);
+if(count($a) > 0)
+  $tasks = $s->getTasksWithFollowingStatus($a);
+else
+  $tasks = $s->getTasksWithFollowingStatus();
+
 $status_level = $s->getAllStatusLevels();
 foreach ($tasks as $task) {
   ?>
