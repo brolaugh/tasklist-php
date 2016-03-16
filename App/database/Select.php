@@ -121,4 +121,16 @@ class Select extends dbSetup
     }
     return $a;
   }
+  public function getTaskStatusHistory($taskID){
+    $stmt = $this->getDb()->prepare("SELECT user, stamp, plain_text, style_class FROM task_history WHERE task = ?");
+    $stmt->bind_param('i', $taskID);
+    $stmt->execute();
+
+    $res = $stmt->get_result();
+    $a = [];
+    while($row = $res->fetch_object){
+      $a[] = $row;
+    }
+    return $a;
+  }
 }
