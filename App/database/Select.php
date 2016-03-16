@@ -11,52 +11,17 @@ namespace App\database;
 
 class Select extends dbSetup
 {
-
-  /**
-   * @return array
-   */
-  public function getAllTasks()
+  public function getTaskWithStatus($taskID)
   {
-    $stmt = $this->getDb()->prepare("SELECT * FROM task");
+    $stmt = $this->getDb()->prepare("SELECT * FROM task_with_status WHERE id = ?");
+    $stmt->bind_param('i', $taskID);
     $stmt->execute();
     $res = $stmt->get_result();
     $a = array();
-    while ($row = $res->fetch_object()) {
-      array_push($a, $row);
-    }
+    $retval = $res->fetch_object();
     $stmt->close();
-    return $a;
+    return $retval;
   }
-
-  /**
-   * @return array
-   */
-  public function getAllUnFinishedTasks()
-  {
-    $stmt = $this->getDb()->prepare("SELECT * FROM status");
-    $stmt->execute();
-    $res = $stmt->get_result();
-    $a = array();
-    while ($row = $res->fetch_object()) {
-      array_push($a, $row);
-    }
-    $stmt->close();
-    return $a;
-  }
-
-  public function getAllDoneTasks()
-  {
-    $stmt = $this->getDb()->prepare("");
-    $stmt->execute();
-    $res = $stmt->get_result();
-    $a = array();
-    while ($row = $res->fetch_object()) {
-      array_push($a, $row);
-    }
-    $stmt->close();
-    return $a;
-  }
-
   /**
    * @return object array
    */

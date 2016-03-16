@@ -92,9 +92,9 @@
     $status_level = $s->getAllStatusLevels();
     foreach ($t as $task) {
       ?>
-      <div class="well well-xs">
+      <div class="well well-xs" id="task_nr_<?php echo $task->id;?>">
         <h3>
-          <span class="pull-left"><?php echo $task->title; ?></span>
+          <span ><?php echo $task->title; ?></span>
           <div class="btn-group">
             <div class="btn-toolbar">
               <div class="btn-group">
@@ -138,6 +138,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title" id="modal-title">Ändra status</h4>
+
           </div>
           <div class="modal-body">
             <form class="form-horizontal" action="javascript:changeStatus()" method="post">
