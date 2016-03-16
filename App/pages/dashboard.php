@@ -66,7 +66,7 @@
           <div class="form-group">
             <label for="taskbody" class="control-label col-md-2">Detalj</label>
             <div class="col-md-10">
-              <textarea name="taskbody" rows="3" class="col-md-10 col-sm-10 col-xs-12"
+              <textarea name="taskbody" rows="3" class="col-md-10 col-sm-10 col-xs-12 form-control"
               placeholder="Detaljer"></textarea>
             </div>
           </div>
