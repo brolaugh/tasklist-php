@@ -14,13 +14,14 @@ function modalFix(task_s, status_s, title_s){
 }
 function changeStatus(){
     var xmlhttp = new XMLHttpRequest();
+    var user = document.getElementById("modalname").value;
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         $('#statusmodal').modal('hide');
         //document.getElementById("feed").innerHTML = xmlhttp.responseText;
       }
     };
-    xmlhttp.open("POST", "App/formhandlar/changestatus.php", true);
+    xmlhttp.open("POST", "App/formhandler/changestatus.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("task="+task+"&status="+status+"&user"+user);
 }
