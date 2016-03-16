@@ -55,25 +55,25 @@
   </div>
   <div class="col-md-6">
     <div class="well">
-      <form class="form-horizontal" role="form" action="App/formhandler/add_listitem.php" method="post">
+      <form class="form-horizontal" action="javascript:addTask()" method="post">
         <fieldset>
           <div class="form-group">
             <label for="tasktitle" class="control-label col-md-2">Uppgift</label>
             <div class="col-md-10">
-              <input type="text" name="tasktitle" placeholder="Uppgiftstitel" class="form-control" required="required">
+              <input type="text" name="tasktitle" id="tasktitle" placeholder="Uppgiftstitel" class="form-control" required="required">
             </div>
           </div>
           <div class="form-group">
             <label for="taskbody" class="control-label col-md-2">Detalj</label>
             <div class="col-md-10">
-              <textarea name="taskbody" rows="3" class="col-md-10 col-sm-10 col-xs-12 form-control"
+              <textarea name="taskbody" id="taskbody" rows="5" class="col-md-10 col-sm-10 col-xs-12 form-control"
               placeholder="Detaljer"></textarea>
             </div>
           </div>
           <div class="form-group">
             <label for="person" class="control-label col-md-2">Person</label>
             <div class="col-md-10">
-              <input type="text" name="taskperson" placeholder="Person" class="form-control" required="required">
+              <input type="text" name="taskperson" id="taskperson" placeholder="Person" class="form-control" required="required">
             </div>
           </div>
           <div class="form-group col-md-offset-2 col-md-10">
@@ -109,7 +109,7 @@
                     if ($task->level != $tl->plain_text) {
                       ?>
                       <li data-toggle="modal" data-target="#statusmodal" onclick="javascript:modalFix(<?php echo $task->id . "," . $tl->id . ",'" . $task->title."'";?>)">
-                          <span class="text-<?php echo $tl->style_class; ?>"><?php echo $tl->plain_text; ?></span>
+                        <span class="text-<?php echo $tl->style_class; ?>"><?php echo $tl->plain_text; ?></span>
                       </li>
                       <?php
                     }
@@ -152,7 +152,7 @@
                   </div>
                 </div>
               </fieldset>
-              </form>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" onclick="changeStatus();">Ändra status</button>

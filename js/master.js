@@ -1,5 +1,4 @@
 var title, status, task;
-UpdateTaskVisuals(18);
 function modalFix(task_s, status_s, title_s){
   document.getElementById("modal-title").value = title_s;
   title = title_s;
@@ -9,6 +8,21 @@ function modalFix(task_s, status_s, title_s){
   task = task_s;
     console.log("modalFix");
 
+}
+function addTask(){
+    var xmlhttp = new XMLHttpRequest();
+    var tasktitle = document.getElementById("tasktitle").value;
+    var taskbody = document.getElementById("taskbody").value;
+    var taskperson = document.getElementById("taskperson").value;
+    console.log("Häre är jag!");
+    xmlhttp.onreadystatechange = function() {
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+      }
+    };
+    xmlhttp.open("POST", "App/formhandler/add_listitem.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send("tasktitle="+tasktitle+"&taskbody="+taskperson+"&taskperson"+taskperson);
 }
 function changeStatus(){
     var xmlhttp = new XMLHttpRequest();
