@@ -17,7 +17,9 @@ function addTask(){
     console.log("Häre är jag!");
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
+        document.getElementById("tasktitle").value = "";
+        document.getElementById("taskbody").value = "";
+        document.getElementById("taskperson").value = "";
       }
     };
     xmlhttp.open("POST", "App/formhandler/add_listitem.php", true);
