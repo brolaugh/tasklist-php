@@ -28,6 +28,9 @@ class dbSetup
             exit();
         }
     }
+    public function __destruct() {
+       $this->db->close();
+   }
 
     /**
      * @return Mysqli

@@ -11,6 +11,9 @@ namespace App\database;
 
 class Select extends dbSetup
 {
+  public function __destruct() {
+    parent::__destruct();
+ }
   public function getTaskWithStatus($taskID)
   {
     $stmt = $this->getDb()->prepare("SELECT * FROM task_with_status WHERE id = ?");
