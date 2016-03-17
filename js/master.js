@@ -14,17 +14,30 @@ function addTask(){
     var tasktitle = document.getElementById("tasktitle").value;
     var taskbody = document.getElementById("taskbody").value;
     var taskperson = document.getElementById("taskperson").value;
-    console.log("Häre är jag!");
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         document.getElementById("tasktitle").value = "";
         document.getElementById("taskbody").value = "";
         document.getElementById("taskperson").value = "";
+        getLastTask();
       }
     };
     xmlhttp.open("POST", "App/formhandler/add_listitem.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xmlhttp.send("tasktitle="+tasktitle+"&taskbody="+taskperson+"&taskperson"+taskperson);
+}
+function getLastTask(){
+  var xmlhttp = new XMLHttpRequest();
+  console.log("Häre är jag!");
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          console.log("Häre är jag!");
+      $("#feed").append(xmlhttp.responseText);
+    }
+  };
+  xmlhttp.open("POST", "App/ajax/lasttask.php", true);
+  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send();
 }
 function changeStatus(){
     var xmlhttp = new XMLHttpRequest();

@@ -20,7 +20,15 @@ class Select extends dbSetup
     $stmt->bind_param('i', $taskID);
     $stmt->execute();
     $res = $stmt->get_result();
-    $a = array();
+    $retval = $res->fetch_object();
+    $stmt->close();
+    return $retval;
+  }
+  public function getLastTask(){
+
+    $stmt = $this->getDb()->prepare("SELECT * FROM last_task_with_status");
+    $stmt->execute();
+    $res = $stmt->get_result();
     $retval = $res->fetch_object();
     $stmt->close();
     return $retval;

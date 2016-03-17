@@ -9,7 +9,6 @@
 
 chdir("../..");
 include_once 'Helper.php';
-
 //$statuses = $_POST['statuses'];
 $a = array();
 if(isset($_POST['done']) && $_POST['done'] == true){
