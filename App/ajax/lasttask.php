@@ -14,7 +14,7 @@ $s = new \App\database\Select();
 $task = $s->getLastTask();
 $status_level = $s->getAllStatusLevels();
 ?>
-<div class="well well-xs">
+<div class="well well-xs status-<?php echo $task->level;?>">
   <h3>
     <span ><?php echo $task->title; ?></span>
     <div class="btn-group">

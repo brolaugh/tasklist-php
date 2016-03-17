@@ -31,8 +31,8 @@ function getLastTask(){
   console.log("Häre är jag!");
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-          console.log("Häre är jag!");
-      $("#feed").append(xmlhttp.responseText);
+
+      $("#feed").prepend(xmlhttp.responseText);
     }
   };
   xmlhttp.open("POST", "App/ajax/lasttask.php", true);
@@ -67,24 +67,15 @@ function UpdateTaskVisuals(taskID){
 function getStatusHistory(task){
 
 }
-function updateFeed(a){
-  var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById("feed").innerHTML = xmlhttp.responseText;
-    }
-  };
-  xmlhttp.open("POST", "App/ajax/gettasks.php", true);
-  xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xmlhttp.send("done="+a[0] + "&undone="+a[1] + "&indev="+a[2] + "&prio1="+a[3]);
-  //console.debug(xmlhttp);
-}
-function getFeedArguments(){
-  var arguments = [];
-  arguments.push(document.getElementById("done").checked);
-  arguments.push(document.getElementById("undone").checked);
-  arguments.push(document.getElementById("indev").checked);
-  arguments.push(document.getElementById("prio1").checked);
 
-  updateFeed(arguments);
+function applyFilter(){
+  var status_options = ["done","indev","prio1"];
+  for(var i = 0; i < status_options.length;i++){
+              console.log("Häre är jag!");
+    if(document.getElementById(status_options[i]).checked){
+      $(".status-"+status_options[i]).hide();
+    }else{
+      $(".status-"+status_options[i]).show();
+    }
+  }
 }

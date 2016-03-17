@@ -10,7 +10,7 @@
   <div class="col-md-3">
     <div class="well">
       <h3>Alternativ</h3>
-      <form class="form-horizontal" action="javascript:getFeedArguments();" method="post">
+      <form class="form-horizontal" action="javascript:applyFilter();" method="post">
         <div class="form-group">
           <div class="togglebutton">
             <label>
@@ -92,7 +92,7 @@
     $status_level = $s->getAllStatusLevels();
     foreach ($t as $task) {
       ?>
-      <div class="well well-xs" id="task_nr_<?php echo $task->id;?>">
+      <div class="well well-xs status-<?php echo $task->level;?>" id="task_nr_<?php echo $task->id;?>">
         <h3>
           <span ><?php echo $task->title; ?></span>
           <div class="btn-group">

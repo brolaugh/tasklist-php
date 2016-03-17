@@ -32,7 +32,7 @@ else
 $status_level = $s->getAllStatusLevels();
 foreach ($tasks as $task) {
   ?>
-  <div class="well well-xs">
+  <div class="well well-xs status-<?php echo $task->level;?>">
     <h3>
       <span ><?php echo $task->title; ?></span>
       <div class="btn-group">
