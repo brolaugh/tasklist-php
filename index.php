@@ -13,8 +13,6 @@ include_once("Helper.php");
 <html>
 <head>
   <link rel="stylesheet" href="css/bootstrap.min.css" charset="utf-8">
-  <link rel="stylesheet" href="css/bootstrap-material-design.min.css" charset="utf-8">
-  <link rel="stylesheet" href="css/ripples.min.css" charset="utf-8">
   <meta charset="utf-8">
   <title>TaskList</title>
   <script src="js/master.js" charset="utf-8"></script>
