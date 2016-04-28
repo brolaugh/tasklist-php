@@ -14,7 +14,7 @@ class dbSetup
     private $db;
     private $server = "rickardhforslund.se";
     private $username = "brolaugh";
-    private $password = "hannes";
+    private $password = "rickardh";
     private $database = "brolaugh_tasklist";
 
 
@@ -28,7 +28,9 @@ class dbSetup
             exit();
         }
     }
-
+    public function __destruct() {
+      $this->db->close();
+   }
     /**
      * @return Mysqli
      */

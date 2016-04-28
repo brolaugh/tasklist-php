@@ -31,7 +31,7 @@ class Insert extends dbSetup{
    * @param String $user
    */
   public function addStatus($task, $status_level, $user="Unkown"){
-    $stmt = $this->getDb()->prepare("INSERT INTO status(task, status_level, user) values(?,?,?)");
+    $stmt = $this->getDb()->prepare("INSERT INTO status(task, status_level, user, stamp) values(?,?,?, now())");
     $stmt->bind_param('iis', $task, $status_level, $user);
     $stmt->execute();
     $stmt->close();

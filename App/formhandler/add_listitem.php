@@ -17,4 +17,4 @@ if(!isset($_POST['tasktitle'])){
 $insert = new \App\database\Insert();
 $insert->AddCompleteListEntry($_POST['tasktitle'], $_POST['taskbody'], $_POST['taskperson']);
 
-header("Location:../../dashboard");
+//header("Location:../../dashboard");
