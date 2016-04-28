@@ -42,6 +42,7 @@ function getLastTask(){
 function changeStatus(){
     var xmlhttp = new XMLHttpRequest();
     var user = document.getElementById("modalname").value;
+    console.debug(user);
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         $('#statusmodal').modal('hide');
@@ -50,7 +51,7 @@ function changeStatus(){
     };
     xmlhttp.open("POST", "App/formhandler/changestatus.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("task="+task+"&status="+status+"&user"+user);
+    xmlhttp.send("task="+task+"&status="+status+"&user="+user);
 }
 function UpdateTaskVisuals(taskID){
   var xmlhttp = new XMLHttpRequest();
