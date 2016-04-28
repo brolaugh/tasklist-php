@@ -10,7 +10,9 @@ namespace App\database;
 
 
 class Insert extends dbSetup{
-
+  public function __destruct() {
+    parent::__destruct();
+ }
   /**
    * @param String $title
    * @param String $detail
