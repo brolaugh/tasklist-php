@@ -12,8 +12,6 @@ include_once("Helper.php");
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="css/bootstrap.min.css" charset="utf-8">
   <meta charset="utf-8">
   <title>TaskList</title>

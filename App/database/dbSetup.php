@@ -12,7 +12,7 @@ namespace App\database;
 class dbSetup
 {
     private $db;
-    private $server = "rickardhforslund.se";
+    private $server = "home.rickfo.se";
     private $username = "brolaugh";
     private $password = "rickardh";
     private $database = "brolaugh_tasklist";

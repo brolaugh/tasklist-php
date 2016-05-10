@@ -24,7 +24,7 @@ function addTask(){
     };
     xmlhttp.open("POST", "App/formhandler/add_listitem.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("tasktitle="+tasktitle+"&taskbody="+taskperson+"&taskperson="+taskperson);
+    xmlhttp.send("tasktitle="+tasktitle+"&taskbody="+taskbody+"&taskperson="+taskperson);
 }
 function getLastTask(){
   var xmlhttp = new XMLHttpRequest();
