@@ -1,13 +1,13 @@
 <div class="row">
   <div class="col-md-3">
     <div class="well">
-      <h3>Alternativ</h3>
+      <h3>Visningsalternativ</h3>
       <form class="form-horizontal" action="javascript:applyFilter();" method="post">
         <div class="form-group">
           <div class="togglebutton">
             <label>
-              Visa färdiga uppgifter
-              <input type="checkbox" name="done" id="done"><span class="toggle"></span>
+              färdiga uppgifter
+              <input type="checkbox" name="done" id="done" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
 
@@ -15,8 +15,8 @@
         <div class="form-group">
           <div class="togglebutton">
             <label>
-              Visa ofärdiga uppgifter
-              <input checked="" type="checkbox" name="undone" id="undone" ><span class="toggle"></span>
+              ofärdiga uppgifter
+              <input checked="" type="checkbox" name="undone" id="undone" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
 
@@ -25,7 +25,7 @@
           <div class="togglebutton">
             <label>
               Visa indev uppgifter
-              <input checked="" type="checkbox" name="indev" id="indev" ><span class="toggle"></span>
+              <input checked="" type="checkbox" name="indev" id="indev" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
 
@@ -33,8 +33,18 @@
         <div class="form-group">
           <div class="togglebutton">
             <label>
-              Visa PRIO 1 uppgifter
-              <input checked="" type="checkbox" name="prio1" id="prio1" ><span class="toggle"></span>
+              PRIO 1 uppgifter
+              <input checked="" type="checkbox" name="prio1" id="prio1" onchange="applyFilter(this)"><span class="toggle"></span>
+            </label>
+          </div>
+
+        </div>
+
+        <div class="form-group">
+          <div class="togglebutton">
+            <label>
+              Tillagda uppgifter
+              <input checked="" type="checkbox" name="added" id="added" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
 

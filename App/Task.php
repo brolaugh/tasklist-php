@@ -25,7 +25,7 @@ class Task{
   }
 
   public function printTask(){
-    echo "<div class=\"well well-xs status-$this->status\" id=\"task_nr_$this->id\">";
+    echo "<div class=\"well well-xs status-" . strtolower($this->status) . "\" id=\"task_nr_$this->id\">";
     $this->printInnerTask();
     echo '</div>';
   }

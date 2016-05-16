@@ -69,14 +69,11 @@ function getStatusHistory(task){
 
 }
 
-function applyFilter(){
-  var status_options = ["done","indev","prio1"];
-  for(var i = 0; i < status_options.length;i++){
-              console.log("Häre är jag!");
-    if(document.getElementById(status_options[i]).checked){
-      $(".status-"+status_options[i]).hide();
-    }else{
-      $(".status-"+status_options[i]).show();
-    }
+function applyFilter(object){
+  console.log(object.checked);
+  if(!object.checked)
+    $(".status-"+object.id).hide();
+  else {
+    $(".status-"+object.id).show();
   }
 }
