@@ -7,7 +7,7 @@
           <div class="togglebutton">
             <label>
               färdiga uppgifter
-              <input type="checkbox" name="done" id="done" onchange="applyFilter(this)"><span class="toggle"></span>
+              <input checked="" type="checkbox" name="done" id="done" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
 
@@ -15,16 +15,7 @@
         <div class="form-group">
           <div class="togglebutton">
             <label>
-              ofärdiga uppgifter
-              <input checked="" type="checkbox" name="undone" id="undone" onchange="applyFilter(this)"><span class="toggle"></span>
-            </label>
-          </div>
-
-        </div>
-        <div class="form-group">
-          <div class="togglebutton">
-            <label>
-              Visa indev uppgifter
+              indev uppgifter
               <input checked="" type="checkbox" name="indev" id="indev" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
@@ -49,10 +40,6 @@
           </div>
 
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-primary" name="button">updateFeed</button>
-        </div>
-      </form>
     </div>
   </div>
   <div class="col-md-6">
