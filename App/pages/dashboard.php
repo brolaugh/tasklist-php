@@ -2,10 +2,9 @@
   <div class="col-md-3">
     <div class="well">
       <h3>Visningsalternativ</h3>
-      <form class="form-horizontal" action="javascript:applyFilter();" method="post">
         <div class="form-group">
           <div class="togglebutton">
-            <label>
+            <label class="text-primary">
               färdiga uppgifter
               <input checked="" type="checkbox" name="done" id="done" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
@@ -14,7 +13,7 @@
         </div>
         <div class="form-group">
           <div class="togglebutton">
-            <label>
+            <label class="text-primary">
               indev uppgifter
               <input checked="" type="checkbox" name="indev" id="indev" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
@@ -23,26 +22,25 @@
         </div>
         <div class="form-group">
           <div class="togglebutton">
-            <label>
+            <label class="text-primary">
               PRIO 1 uppgifter
               <input checked="" type="checkbox" name="prio1" id="prio1" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
-
         </div>
+
 
         <div class="form-group">
           <div class="togglebutton">
-            <label>
+            <label class="text-primary">
               Tillagda uppgifter
               <input checked="" type="checkbox" name="added" id="added" onchange="applyFilter(this)"><span class="toggle"></span>
             </label>
           </div>
-
         </div>
-    </div>
+        </div>
   </div>
-  <div class="col-md-6">
+  <div class="col-md-9">
     <div class="well">
       <form class="form-horizontal" action="javascript:addTask()" method="post">
         <fieldset>
