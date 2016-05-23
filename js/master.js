@@ -1,4 +1,5 @@
 var title, status, task;
+var statusClasses = ['added','indev', 'done','prio1'];
 function modalFix(task_s, status_s, title_s){
   document.getElementById("modal-title").value = title_s;
   title = title_s;
@@ -6,7 +7,6 @@ function modalFix(task_s, status_s, title_s){
   status = status_s;
   document.getElementById("modaltask").value = task_s;
   task = task_s;
-    console.log("modalFix");
 
 }
 function addTask(){
@@ -42,7 +42,6 @@ function getLastTask(){
 function changeStatus(){
     var xmlhttp = new XMLHttpRequest();
     var user = document.getElementById("modalname").value;
-    console.debug(user);
     xmlhttp.onreadystatechange = function() {
       if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         $('#statusmodal').modal('hide');
@@ -58,19 +57,24 @@ function UpdateTaskVisuals(taskID){
   var user = document.getElementById("modalname").value;
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      document.getElementById("task_nr_"+taskID).innerHTML = xmlhttp.responseText;
+      var taskNr = document.getElementById("task_nr_"+taskID);
+      taskNr.innerHTML = xmlhttp.responseText;
+      taskNr.classList.remove(taskNr.classList.item(taskNr.classList.length-1));
+      taskNr.classList.add("status-"+statusClasses[status-1]);
+      if(document.getElementById(statusClasses[status-1]).checked){
+        $("#"+taskNr.id).show();
+      }
+      else{
+        $("#"+taskNr.id).hide();
+      }
     }
   };
   xmlhttp.open("POST", "App/ajax/gettask_inner.php", true);
   xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xmlhttp.send("task="+taskID);
 }
-function getStatusHistory(task){
-
-}
 
 function applyFilter(object){
-  console.log(object.checked);
   if(!object.checked)
     $(".status-"+object.id).hide();
   else {

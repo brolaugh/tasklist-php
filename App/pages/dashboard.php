@@ -45,20 +45,20 @@
       <form class="form-horizontal" action="javascript:addTask()" method="post">
         <fieldset>
           <div class="form-group">
-            <label for="tasktitle" class="control-label col-md-2">Uppgift</label>
+            <label for="tasktitle" class="control-label col-md-2 text-primary">Uppgift</label>
             <div class="col-md-10">
               <input type="text" name="tasktitle" id="tasktitle" placeholder="Uppgiftstitel" class="form-control" required="required">
             </div>
           </div>
           <div class="form-group">
-            <label for="taskbody" class="control-label col-md-2">Detalj</label>
+            <label for="taskbody" class="control-label col-md-2 text-primary">Detalj</label>
             <div class="col-md-10">
-              <textarea name="taskbody" id="taskbody" rows="5" class="col-md-10 col-sm-10 col-xs-12 form-control"
+              <textarea name="taskbody" id="taskbody" rows="2" style="height: auto" class="col-md-10 col-sm-10 col-xs-12 form-control"
               placeholder="Detaljer"></textarea>
             </div>
           </div>
           <div class="form-group">
-            <label for="person" class="control-label col-md-2">Person</label>
+            <label for="person" class="control-label col-md-2 text-primary">Person</label>
             <div class="col-md-10">
               <input type="text" name="taskperson" id="taskperson" placeholder="Person" class="form-control" required="required">
             </div>
